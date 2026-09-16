@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nazeer Zaidi | Software Engineer & Network Tech</title>
-  
-  <!-- Google Fonts & FontAwesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <title>Nazeer Zaidi | Software Engineer & Network Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
   <style>
     :root {
-      --bg-color: #0b0f19;
-      --card-bg: rgba(18, 24, 38, 0.6);
+      --bg-color: #090d16;
+      --card-bg: rgba(15, 23, 42, 0.65);
       --card-border: rgba(255, 255, 255, 0.08);
-      --accent-color: #38bdf8;
+      --accent-cyan: #38bdf8;
+      --accent-indigo: #6366f1;
       --accent-purple: #a855f7;
-      --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
@@ -28,12 +25,6 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg-color); }
-    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
-
     body {
       background-color: var(--bg-color);
       color: var(--text-main);
@@ -41,338 +32,255 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
-      position: relative;
-      overflow-x: hidden;
+      padding: 2rem 1rem;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.12) 0px, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.12) 0px, transparent 40%);
+      background-attachment: fixed;
     }
 
-    /* Background Animated Glows */
-    .bg-glow-1, .bg-glow-2 {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      z-index: -1;
-      opacity: 0.25;
-      animation: pulse 8s ease-in-out infinite alternate;
-    }
-    .bg-glow-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--accent-color); }
-    .bg-glow-2 { bottom: -10%; right: -10%; width: 500px; height: 500px; background: var(--accent-purple); }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.2; }
-      100% { transform: scale(1.2); opacity: 0.35; }
-    }
-
-    /* Bento Grid Layout */
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+      gap: 1.25rem;
       max-width: 1100px;
       width: 100%;
-      animation: fadeInUp 0.8s ease-out forwards;
     }
 
-    /* Glassmorphism Card Style */
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 1.8rem;
+      border-radius: 20px;
+      padding: 1.5rem;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(56, 189, 248, 0.4);
-      box-shadow: 0 20px 40px -15px rgba(56, 189, 248, 0.2);
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.25);
     }
 
-    /* Card Spans */
-    .profile-card { grid-column: span 2; grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
-    .about-card { grid-column: span 2; }
-    .skills-card { grid-column: span 2; }
+    /* Grid Layout Spans */
+    .hero-card { grid-column: span 2; grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
+    .journey-card { grid-column: span 2; }
+    .tech-card { grid-column: span 2; }
     .projects-card { grid-column: span 3; }
-    .contact-card { grid-column: span 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    .status-card { grid-column: span 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 
-    /* Profile Elements */
-    .avatar-container {
-      position: relative;
-      width: 120px;
-      height: 120px;
+    /* Profile Avatar */
+    .avatar-wrapper {
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
-      padding: 4px;
-      background: var(--accent-gradient);
+      padding: 3px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
       margin-bottom: 1.2rem;
     }
 
-    .avatar {
+    .avatar-img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      background-color: #1e293b;
+      background-color: #0f172a;
     }
 
-    .status-badge {
-      position: absolute;
-      bottom: 4px;
-      right: 4px;
-      width: 18px;
-      height: 18px;
-      background: #10b981;
-      border: 3px solid var(--bg-color);
-      border-radius: 50%;
-    }
-
-    .title {
-      font-size: 2.2rem;
+    .name {
+      font-size: 1.8rem;
       font-weight: 800;
-      background: var(--accent-gradient);
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #fff 30%, var(--accent-cyan));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.4rem;
     }
 
-    .subtitle {
+    .role {
       color: var(--text-muted);
-      font-size: 1.05rem;
-      min-height: 1.5rem;
+      font-size: 0.95rem;
+      margin-top: 0.2rem;
     }
 
-    .tag {
+    .badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.4rem 0.9rem;
+      padding: 0.4rem 0.8rem;
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.2);
-      color: var(--accent-color);
-      border-radius: 12px;
-      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      border-radius: 20px;
+      font-size: 0.8rem;
       font-weight: 600;
       margin-top: 1rem;
     }
 
-    /* Skills Badges */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-
-    .skill-badge {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--card-border);
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
-      font-size: 0.85rem;
+    /* Headings */
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      transition: background 0.3s, border-color 0.3s;
+      margin-bottom: 0.8rem;
     }
 
-    .skill-badge:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--accent-color);
+    .card-title i { color: var(--accent-cyan); }
+
+    .description {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
-    /* Project Cards */
+    /* Tech Badges */
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .tech-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Projects */
     .project-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin-top: 0.8rem;
     }
 
-    .project-item {
+    .project-box {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 1.2rem;
-      transition: border-color 0.3s;
+      border-radius: 12px;
+      padding: 1rem;
     }
 
-    .project-item:hover {
-      border-color: rgba(168, 85, 247, 0.4);
+    .project-box h4 {
+      font-size: 0.95rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.3rem;
     }
 
-    .project-item h4 {
-      color: var(--text-main);
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .project-item p {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    /* Social Links */
-    .social-links {
+    /* Social Icons */
+    .socials {
       display: flex;
-      gap: 1.2rem;
+      gap: 0.8rem;
       margin-top: 1.2rem;
     }
 
-    .social-icon {
-      color: var(--text-muted);
-      font-size: 1.4rem;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .social-icon:hover {
-      color: var(--accent-color);
-      transform: translateY(-3px);
-    }
-
-    .btn-connect {
-      display: inline-block;
-      margin-top: 0.8rem;
-      padding: 0.6rem 1.2rem;
-      background: var(--accent-gradient);
-      color: #fff;
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-main);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.85rem;
-      border-radius: 12px;
-      transition: opacity 0.3s;
+      transition: all 0.2s;
     }
 
-    .btn-connect:hover { opacity: 0.9; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .social-btn:hover {
+      background: var(--accent-cyan);
+      color: #000;
     }
 
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 900px) {
       .bento-grid { grid-template-columns: 1fr; }
-      .profile-card, .about-card, .skills-card, .projects-card, .contact-card { grid-column: span 1; grid-row: auto; }
+      .hero-card, .journey-card, .tech-card, .projects-card, .status-card {
+        grid-column: span 1;
+        grid-row: auto;
+      }
       .project-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Ambient Glows -->
-  <div class="bg-glow-1"></div>
-  <div class="bg-glow-2"></div>
-
   <div class="bento-grid">
     
-    <!-- Profile Card -->
-    <div class="card profile-card">
+    <!-- Hero / Profile Card -->
+    <div class="card hero-card">
       <div>
-        <div class="avatar-container">
-          <img src="img/img.jpeg" alt="Nazeer Zaidi" class="avatar">
-          <div class="status-badge" title="Open to Work / Projects"></div>
+        <div class="avatar-wrapper">
+          <img src="img/img.jpeg" alt="Nazeer Zaidi" class="avatar-img">
         </div>
-        <h1 class="title">Nazeer Zaidi</h1>
-        <p class="subtitle"><span id="typing-text"></span></p>
-        <span class="tag"><i class="fa-solid fa-code"></i> Full-Stack & Networking</span>
+        <h1 class="name">Nazeer Zaidi</h1>
+        <p class="role">Software Engineering & Networking Specialist</p>
+        <div class="badge">
+          <i class="fa-solid fa-circle-dot" style="font-size: 0.6rem;"></i> Available for Projects
+        </div>
       </div>
-      <div class="social-links">
-        <a href="https://github.com/nazeerzaidi15-cell" class="social-icon" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="mailto:nazeerzaidi15@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
-        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+      
+      <div class="socials">
+        <a href="https://github.com/nazeerzaidi15-cell" class="social-btn" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:nazeerzaidi15@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
 
-    <!-- About Journey Card -->
-    <div class="card about-card">
-      <h3><i class="fa-solid fa-compass" style="color: var(--accent-color);"></i> My Journey</h3>
-      <p style="color: var(--text-muted); margin-top: 0.8rem; font-size: 0.95rem; line-height: 1.6;">
-        Memfokuskan kepakaran dalam pembangunan web moden dan seni bina rangkaian Cisco. Berpengalaman membina sistem web interaktif serta mereka bentuk infrastruktur rangkaian yang kukuh.
+    <!-- Journey / About Card -->
+    <div class="card journey-card">
+      <div class="card-title"><i class="fa-solid fa-compass"></i> My Journey</div>
+      <p class="description">
+        Passionate about crafting modern web architectures and robust network infrastructures. Focused on full-stack development using PHP and MySQL, alongside designing high-availability Cisco enterprise networks.
       </p>
     </div>
 
     <!-- Tech Stack Card -->
-    <div class="card skills-card">
-      <h3><i class="fa-solid fa-layer-group" style="color: var(--accent-purple);"></i> Tech Stack</h3>
-      <div class="skills-list">
-        <div class="skill-badge"><i class="fa-brands fa-php" style="color: #777BB4;"></i> PHP</div>
-        <div class="skill-badge"><i class="fa-brands fa-js" style="color: #F7DF1E;"></i> JavaScript</div>
-        <div class="skill-badge"><i class="fa-solid fa-database" style="color: #00758F;"></i> MySQL</div>
-        <div class="skill-badge"><i class="fa-brands fa-html5" style="color: #E34F26;"></i> HTML5 / CSS3</div>
-        <div class="skill-badge"><i class="fa-solid fa-network-wired" style="color: #1BA0D7;"></i> Cisco Packet Tracer</div>
+    <div class="card tech-card">
+      <div class="card-title"><i class="fa-solid fa-code"></i> Tech Stack & Skills</div>
+      <div class="tech-list">
+        <div class="tech-item"><i class="fa-brands fa-php" style="color:#777BB4;"></i> PHP</div>
+        <div class="tech-item"><i class="fa-brands fa-js" style="color:#F7DF1E;"></i> JavaScript</div>
+        <div class="tech-item"><i class="fa-solid fa-database" style="color:#00758F;"></i> MySQL</div>
+        <div class="tech-item"><i class="fa-brands fa-html5" style="color:#E34F26;"></i> HTML5/CSS3</div>
+        <div class="tech-item"><i class="fa-solid fa-network-wired" style="color:#1BA0D7;"></i> Cisco Packet Tracer</div>
+        <div class="tech-item"><i class="fa-solid fa-sitemap"></i> VLAN & HSRP</div>
       </div>
     </div>
 
-    <!-- Projects Card -->
+    <!-- Featured Projects Card -->
     <div class="card projects-card">
-      <h3><i class="fa-solid fa-rocket" style="color: var(--accent-color);"></i> Featured Projects</h3>
+      <div class="card-title"><i class="fa-solid fa-diagram-project"></i> Featured Projects</div>
       <div class="project-grid">
-        <div class="project-item">
-          <h4>NFS LUXERY — Hotel System</h4>
-          <p>Sistem tempahan hotel berasaskan web lengkap dengan pengurusan bilik, portal admin, dan carian dinamik.</p>
+        <div class="project-box">
+          <h4>NFS LUXE — Hotel Management System</h4>
+          <p class="description" style="font-size:0.8rem;">Full-stack web application featuring room reservations, dynamic booking logic, and an administrative control portal.</p>
         </div>
-        <div class="project-item">
-          <h4>Cisco Network Architecture</h4>
-          <p>Konfigurasi VLAN, HSRP redundancy, DHCP, dan inter-VLAN routing berdasarkan Corporate Growth Model.</p>
+        <div class="project-box">
+          <h4>Corporate Network Architecture</h4>
+          <p class="description" style="font-size:0.8rem;">Enterprise network setup implementing VLAN routing, HSRP redundancy, and automated DHCP configurations.</p>
         </div>
       </div>
     </div>
 
-    <!-- Contact Card -->
-    <div class="card contact-card">
-      <i class="fa-solid fa-paper-plane" style="font-size: 2.2rem; color: var(--accent-color); margin-bottom: 0.6rem;"></i>
-      <h4 style="margin-bottom: 0.3rem;">Let's Connect</h4>
-      <p style="color: var(--text-muted); font-size: 0.8rem;">Ada projek atau kolaborasi?</p>
-      <a href="mailto:nazeerzaidi15@gmail.com" class="btn-connect">Email Me</a>
+    <!-- Contact & Status Card -->
+    <div class="card status-card">
+      <i class="fa-solid fa-paper-plane" style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 0.6rem;"></i>
+      <h4 style="font-size: 1rem; margin-bottom: 0.4rem;">Get in Touch</h4>
+      <p class="description" style="font-size: 0.8rem; margin-bottom: 1rem;">Open for collaborations</p>
+      <a href="mailto:nazeerzaidi15@gmail.com" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.85rem; font-weight: 700;">Email Me &rarr;</a>
     </div>
 
   </div>
 
-  <!-- Typing Effect Script -->
-  <script>
-    const words = ["Software Engineering Student", "Network Infrastructure Tech", "Full-Stack Web Developer"];
-    let i = 0;
-    let timer;
-
-    function typingEffect() {
-      let word = words[i].split("");
-      var loopTyping = function() {
-        if (word.length > 0) {
-          document.getElementById('typing-text').innerHTML += word.shift();
-        } else {
-          setTimeout(deletingEffect, 2000);
-          return false;
-        }
-        timer = setTimeout(loopTyping, 80);
-      };
-      loopTyping();
-    }
-
-    function deletingEffect() {
-      let word = words[i].split("");
-      var loopDeleting = function() {
-        if (word.length > 0) {
-          word.pop();
-          document.getElementById('typing-text').innerHTML = word.join("");
-        } else {
-          if (words.length > (i + 1)) {
-            i++;
-          } else {
-            i = 0;
-          }
-          typingEffect();
-          return false;
-        }
-        timer = setTimeout(loopDeleting, 40);
-      };
-      loopDeleting();
-    }
-
-    typingEffect();
-  </script>
 </body>
 </html>
