@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazeer | IT & Linux Explorer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #090d16;
+            color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Profile Card */
+        .profile-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img-box {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+        }
+
+        .status-dot {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 15px;
+            height: 15px;
+            background: #10b981;
+            border: 3px solid #090d16;
+            border-radius: 50%;
+        }
+
+        h1 { font-size: 1.5rem; color: #f8fafc; margin-bottom: 5px; }
+        .role { color: #38bdf8; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px; }
+        .bio { color: #94a3b8; font-size: 0.85rem; line-height: 1.5; }
+
+        /* Content Card */
+        .details-card { display: flex; flex-direction: column; gap: 20px; }
+        
+        .section-title {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .grid-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            border-color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .project-item {
+            background: rgba(15, 23, 42, 0.6);
+            border-left: 3px solid #818cf8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .project-item h3 { font-size: 0.95rem; color: #f1f5f9; }
+        .project-item p { font-size: 0.8rem; color: #64748b; margin-top: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Card Kiri: Profile & Gambar -->
+        <div class="card profile-card">
+            <div class="profile-img-box">
+                <img src="img/profile.jpg" alt="Nazeer" class="profile-img">
+                <div class="status-dot"></div>
+            </div>
+            <h1>Nazeer Zaidi</h1>
+            <p class="role">SOFTWARE & NETWORKING</p>
+            <p class="bio">Passionate about Linux Systems, Networking Infrastructure, and Modern CLI workflows.</p>
+        </div>
+
+        <!-- Card Kanan: Skills & Projects -->
+        <div class="card details-card">
+            <div>
+                <div class="section-title">⚡ Tech Stack & Skills</div>
+                <div class="grid-skills">
+                    <div class="skill-box">Ubuntu WSL2</div>
+                    <div class="skill-box">Nginx Server</div>
+                    <div class="skill-box">Linux CLI</div>
+                    <div class="skill-box">Networking</div>
+                    <div class="skill-box">Bash Basics</div>
+                    <div class="skill-box">Git Version</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title">🚀 Active Labs</div>
+                <div class="project-item">
+                    <h3>Local Nginx Web Deployment</h3>
+                    <p>Deployed custom glassmorphism portfolio site directly from Ubuntu WSL2 terminal.</p>
+                </div>
+                <div class="project-item">
+                    <h3>System & Traffic Monitoring Lab</h3>
+                    <p>Hands-on resource tracking using htop, free, and socket statistics (ss).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
